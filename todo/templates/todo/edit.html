@@ -5,7 +5,7 @@
 {% block title %}Edit{% endblock title %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'todo/edit/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/Add/style.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -16,6 +16,7 @@
         {% csrf_token %}
         <label class="title" for="title">Title</label>
         <input class="input" required value="{{ task.title }}" type="text" name="title" id="title" />
+        {% if required %}<p class="errorlist">* Title Shouldn't Empty!</p>{% endif %}
         <label class="description" for="description">Description</label>
         <textarea class="input" id="description" name="description" id="" cols="30" rows="10">{{ task.description }}</textarea>
         <div class="form-group">

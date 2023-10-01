@@ -1,5 +1,5 @@
 from django .shortcuts import redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from .models import TaskModel
 
 def unauthenticated_users(view_func):
@@ -17,5 +17,5 @@ def task_access(view_func):
         if task:
             return view_func(request, *args, **kwargs)
         else:
-            return HttpResponse("This Task is Not Your's")
+            raise(Http404)
     return wrapperfunc

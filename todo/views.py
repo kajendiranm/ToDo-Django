@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import ProfileModel, TaskModel
+from .models import ProfileModel, TaskModel, FeedbackModel
 from django.contrib.auth.models import User
 from .forms import LoginForm, RegisterForm
 from django.contrib.auth import login, logout, authenticate
@@ -8,6 +8,26 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_users, task_access
 from django.contrib import messages
 # Create your views here.
+
+@login_required(login_url='login')
+def feedback_page(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        comment = request.POST['comment']
+        name_required = False
+        comment_required = False
+        if name == '':
+            name_required = True
+        if comment == '':
+            comment_required = True
+        if name_required or comment_required == True:
+            return render(request,'todo/feedback.html',{'name_required':name_required, 'comment_required':comment_required,'name':name,'comment':comment })
+        else:
+            FeedbackModel.objects.create(user=request.user.profilemodel, name=name,comment=comment)
+            messages.success(request,'Thanks For Your Valuable Feedback!')
+            return redirect('home')
+    return render(request,'todo/feedback.html')
+    
 
 @login_required(login_url='login')
 def home_page(request):
@@ -25,7 +45,7 @@ def add_page(request):
         else:
             check = False
         if title == "":
-            return render(request, 'todo/add.html',{'required':True})
+            return render(request, 'todo/add.html',{'required':True,'description':description,})
         TaskModel.objects.create(user=request.user.profilemodel,title=title,description=description,complete=check)
         messages.success(request, "Task Added Successfully!")
         return redirect('home')
@@ -43,6 +63,8 @@ def edit_page(request,id):
             task.complete = True
         else:
             task.complete = False
+        if task.title == "":
+            return render(request, 'todo/edit.html',{'required':True})
         task.save()
         messages.success(request, "Task Edited Successfully!")
         return redirect('home')

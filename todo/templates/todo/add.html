@@ -15,12 +15,12 @@
       <form class="register-form" method="POST">
         {% csrf_token %}
         <label class="title" for="title">Title</label>
-        <input class="input" value="{{ task.title }}" type="text" name="title" id="title" required />
+        <input class="input" type="text" name="title" id="title" required />
         {% if required %}<p class="errorlist">* Title Shouldn't Empty!</p>{% endif %}
         <label class="description" for="description">Description</label>
-        <textarea class="input" id="description" name="description" id="" cols="30" rows="10">{{ task.description }}</textarea>
+        <textarea class="input" id="description" name="description" id="" cols="30" rows="10">{{ description }}</textarea>
         <div class="form-group">
-            <input {% if task.complete %}checked{% endif %} class="box" type="checkbox" name="check" id="complete">
+            <input class="box" type="checkbox" name="check" id="complete">
             <label class="complete" for="complete">Completed</label>
         </div>
         <button>Save</button>
