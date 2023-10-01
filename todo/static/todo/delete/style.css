@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    padding: 0 10px;
+    background-color: #af795e;
+    font-family: 'Stylish', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+    font-size: 1.2em;
+}
+.login-page {
+    max-width: 450px;
+    padding: 3% 0 0;
+    margin: auto;
+  }
+  h2{
+    color: #f39363;
+  }
+.form {
+position: relative;
+z-index: 1;
+background: #FFFFFF;
+max-width: 360px;
+margin: 0 auto 100px;
+padding: 2px 45px 45px 45px;
+text-align: center;
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #f39363;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #f39363;
+  text-decoration: none;
+}
+
+.title,.description{
+  text-align: left;
+  display: block;
+}
+
+textarea{
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 150px;
+}
+
+.form-group {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+.complete-label {
+  margin-right: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+}
+
+.complete-label {
+  margin-left: 10px; 
+  text-align: left;
+}
+
+.box {
+  margin-right: 5px; 
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.delete {
+  text-transform: uppercase;
+  outline: 0;
+  background: #f39363;
+  /* width: 50%; */
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 1px solid white;
+}
+.cancel {
+  text-transform: uppercase;
+  outline: 0;
+  background: #f39363;
+  /* width: 50%; */
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 1px solid white;
+  text-decoration: none;
+}
+/* .delete,
+.cancel {
+    flex: 1; 
+    padding: 0; 
+    margin: 0; 
+    height: 40px;
+} */
