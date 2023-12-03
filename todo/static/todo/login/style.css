@@ -73,3 +73,21 @@ box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 .errorlist li {
     margin-bottom: 3px;
 }
+
+.hide{
+  display: none;
+}
+#result{
+  padding: 0; 
+    margin: -5px 0 10px 0; 
+    font-weight: bold; 
+    font-size: 14px;
+    text-align: left;
+}
+
+.green{
+  color: green;
+}
+.red{
+  color: rgb(150, 3, 3); 
+}

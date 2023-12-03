@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oo5vnyg6n@ln%_x_--!(3lwqt%3)!&g0=1kddr!fcebixk(r(1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['kajendiran.pythonanywhere.com']
+# ALLOWED_HOSTS = ['kajendiran.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,23 +77,23 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',my
-#     }
-# }
-
-
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'kajendiran$todo',
-		'USER': 'kajendiran',
-		'PASSWORD': 'KajaKajaMysql.472004',
-		'HOST':'kajendiran.mysql.pythonanywhere-services.com',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'NAME': 'kajendiran$todo',
+# 		'USER': 'kajendiran',
+# 		'PASSWORD': 'KajaKajaMysql.472004',
+# 		'HOST':'kajendiran.mysql.pythonanywhere-services.com',
+# 	}
+# }
 
 
 # Password validation

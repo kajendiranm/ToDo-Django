@@ -22,5 +22,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='todo/', permanent=False)),
     path('admin/', admin.site.urls),
     path('todo/',include('todo.urls'),name='index'),
-    path('ajax',include('ajaxapp.urls'))
+    path('ajax/',include('ajaxapp.urls'))
 ]

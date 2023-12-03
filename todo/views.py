@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from .models import ProfileModel, TaskModel, FeedbackModel
 from django.contrib.auth.models import User
 from .forms import LoginForm, RegisterForm
@@ -8,6 +8,17 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_users, task_access
 from django.contrib import messages
 # Create your views here.
+
+def username_finder(request):
+    if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        name = request.POST.get('name')
+        obj = User.objects.filter(username=name)
+        if obj.exists():
+            avail = False
+        else:
+            avail = True
+        return JsonResponse({'avail':avail,'name':name})
+    return render(request, 'index.html')
 
 @login_required(login_url='login')
 def feedback_page(request):
