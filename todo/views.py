@@ -111,9 +111,13 @@ def login_page(request):
     return render(request, 'todo/login.html',{'form':form})
 
 def logout_page(request):
-    logout(request)
-    messages.success(request, "You are Logged Out Successfully!")
-    return redirect('login')
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request, "You are Logged Out Successfully!")
+        return redirect('login')
+    else:
+        messages.success(request, "Please login first!")
+        return redirect('login')
 
 @unauthenticated_users
 def register_page(request):
