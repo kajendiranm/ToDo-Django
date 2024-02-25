@@ -1,0 +1,26 @@
+{% extends "todo/base/base.html" %}
+
+{% load static %}
+
+{% block title %}Delete Task{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/delete/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <h2>Task Deletion</h2>
+      <form class="register-form" method="POST">
+        {% csrf_token %}
+        <h3>Are You Sure?</h3>
+        <div class="button">
+            <button class="delete">Delete</button>
+            <a href="{% url "home" %}" class="cancel" >Cancel</a>
+        </div>
+      </form>
+    </div>
+</div>
+
+{% endblock content %}

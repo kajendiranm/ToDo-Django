@@ -1,0 +1,33 @@
+{% extends "todo/base/base.html" %}
+
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/login/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="login-page">
+    <div class="form">
+      {% for message in messages %}
+        <p style="text-align: center;">{{ message }}</p>
+      {% endfor %}
+        <h2>Login</h2>
+      <form class="login-form" method='post'>
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field }}
+        {% endfor %}
+        {% if error %}<p style="font-size:16px;color:rgb(150, 3, 3);font-weight: bold;">
+          Username or Password Incorrect!</p>
+        {% endif %}
+        <button>login</button>
+      </form>
+      <p class="message">Not registered? <a href="{% url "register" %}">Create an account</a></p>
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends "todo/base/base.html" %}
+
+{% load static %}
+
+{% block title %}Delete Task{% endblock title %}
+
+{% block css %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'todo/404.css' %}"> {% endcomment %}
+    <style>
+        body{
+            margin: 0;
+            padding: 0 10px;
+            background-color: #af795e;
+            font-family: 'Stylish', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            box-sizing: border-box;
+            font-size: 1.2em;
+        }
+        .login-page {
+            max-width: 450px;
+            padding: 3% 0 0;
+            margin: auto;
+          }
+          h2{
+            color: #f39363;
+          }
+        .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 2px 45px 45px 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+    </style>
+{% endblock css %}
+
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <h3>OOPS!</h3>
+        <h2>Error 404</h2>
+        <p>This page isn't available. Sorry about that.</p>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "todo/base/base.html" %}
+
+{% load static %}
+
+{% block title %}Feedback{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/Add/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <h2>Feedback Form</h2>
+      <form class="register-form" method="POST">
+        {% csrf_token %}
+        <label class="title" for="name">Your Name</label>
+        <input class="input" value="{{name}}" type="text" name="name" id="name" required />
+        {% if name_required %}<p class="errorlist">* Name Shouldn't Empty!</p>{% endif %}
+        <label class="description" for="comment">Comment</label>
+        <textarea required class="input" id="comment" name="comment" id="" cols="30" rows="10">{{comment}}</textarea>
+        {% if comment_required %}<p class="errorlist">* Description Shouldn't Empty!</p>{% endif %}
+        <button>Submit</button>
+      </form>
+    </div>
+</div>
+
+{% endblock content %}

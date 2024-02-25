@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Stylish&family=Ubuntu&display=swap');
+      </style>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{% static "todo/images/logo.ico" %}">
+    <meta name="viewport" content= "width=device-width,user-scalable=no">
+    <title>{% block title %}{% endblock title %}</title>
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
+    {% block css %}
+    {% endblock css %}
+</head>
+<body>
+    {% block content %}{% endblock content %}
+</body>

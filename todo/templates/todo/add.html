@@ -1,0 +1,31 @@
+{% extends "todo/base/base.html" %}
+
+{% load static %}
+
+{% block title %}Add Task{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/Add/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <h2>Add Task</h2>
+      <form class="register-form" method="POST">
+        {% csrf_token %}
+        <label class="title" for="title">Title</label>
+        <input class="input" type="text" name="title" id="title" required />
+        {% if required %}<p class="errorlist">* Title Shouldn't Empty!</p>{% endif %}
+        <label class="description" for="description">Description</label>
+        <textarea class="input" id="description" name="description" id="" cols="30" rows="10">{{ description }}</textarea>
+        <div class="form-group">
+            <input class="box" type="checkbox" name="check" id="complete">
+            <label class="complete" for="complete">Completed</label>
+        </div>
+        <button>Save</button>
+      </form>
+    </div>
+</div>
+
+{% endblock content %}
